@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HomePage from './pages/home';
 import reportWebVitals from './reportWebVitals';
+import 'typeface-roboto';
 
 ReactDOM.render(
   <React.StrictMode>
