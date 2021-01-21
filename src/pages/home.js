@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Link, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import 'typeface-roboto';
+import "typeface-roboto";
 
-import { Search, WasteRoom } from '../components';
+import { Search, WasteRoom } from "../components";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
+  }
 }));
 
 const HomePage = () => {
@@ -21,8 +16,21 @@ const HomePage = () => {
 
   const classes = useStyles();
 
+  const Copyright = () => (
+    <Typography variant="body2" color="textSecondary" align="center">
+      <Link
+        href="https://howardt12345.com"
+        target="_blank"
+        rel="nofollow noopener noreferrer" 
+        color="inherit"
+      >
+        {`© ${new Date().getFullYear()} Howard Tseng`}
+      </Link>
+    </Typography>
+  );
+
   const addToWasteRoom = (data) => {
-    if (!wasteIsAdded(data.id)) {
+    if (!wasteIsAdded(data.title)) {
       let tmp = [...wasteRoom];
       tmp.push(data);
       setWasteRoom(tmp);
@@ -35,18 +43,19 @@ const HomePage = () => {
     setWasteRoom(tmp);
   };
 
-  const wasteIsAdded = (id) => wasteRoom.filter((w) => w.id === id).length > 0;
+  const wasteIsAdded = (title) => wasteRoom.filter((w) => w.title === title).length > 0;
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <Search />
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={6}>
+          <Search add={addToWasteRoom} isAdded={wasteIsAdded}/>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <WasteRoom />
+        <Grid item xs={12} md={6}>
+          <WasteRoom remove={removeFromWasteRoom} wasteRoom={wasteRoom}/>
         </Grid>
       </Grid>
+      <Copyright />
     </div>
   );
 };
