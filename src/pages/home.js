@@ -47,6 +47,7 @@ const HomePage = () => {
 
   return (
     <div className={classes.root}>
+    <Copyright />
       <Grid container spacing={1}>
         <Grid item xs={12} md={6}>
           <Search add={addToWasteRoom} isAdded={wasteIsAdded}/>
@@ -55,7 +56,6 @@ const HomePage = () => {
           <WasteRoom remove={removeFromWasteRoom} wasteRoom={wasteRoom}/>
         </Grid>
       </Grid>
-      <Copyright />
     </div>
   );
 };

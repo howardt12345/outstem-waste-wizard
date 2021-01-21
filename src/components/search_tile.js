@@ -15,10 +15,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     margin: theme.spacing(2, 0),
-    padding: theme.spacing(1),
-  },
-  content: {
-    textAlign: "center",
   },
   description: {
     padding: theme.spacing(1),
@@ -45,23 +41,21 @@ const getImageURL = (category) => {
     case "Green Bin":
       return "assets/greenbin.png";
     case "HHW":
-      return "assets/notaccepted.png";
+      return "assets/hazard.png";
     case "Depot":
-      return "assets/notaccepted.png";
+      return "assets/depot.png";
     case "Oversize":
-      return "assets/notaccepted.png";
+      return "assets/oversize.png";
     case "Yard Waste":
       return "assets/yardwaste.png";
     case "Christmas Tree":
-      return "assets/notaccepted.png";
+      return "assets/christmas-tree.png";
     case "Metal Items":
-      return "assets/notaccepted.png";
+      return "assets/metal.png";
     case "Electronic Waste":
-      return "assets/notaccepted.png";
-    case "Not Accepted":
-      return "assets/notaccepted.png";
+      return "assets/ewaste.png";
     default:
-      return "";
+      return "assets/notaccepted.png";
   }
 };
 

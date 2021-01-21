@@ -35,7 +35,7 @@ const itemVariant = {
   },
   visible: {
     opacity: 1,
-    duration: 0.3,
+    duration: 0.25,
   },
 };
 
@@ -150,55 +150,63 @@ const WasteRoom = ({ wasteRoom, remove }) => {
       </Typography>
       <Card className={classes.card} key="garbage" variant="outlined">
         <Typography variant={"subtitle1"}>Garbage</Typography>
-        {garbage.map((x) => (
-          <WasteItem
-            data={x}
-            classes={classes}
-            remove={() => {
-              removeFromGarbage(x);
-              remove(x);
-            }}
-          />
-        ))}
+        <AnimatePresence>
+          {garbage.map((x) => (
+            <WasteItem
+              data={x}
+              classes={classes}
+              remove={() => {
+                removeFromGarbage(x);
+                remove(x);
+              }}
+            />
+          ))}
+        </AnimatePresence>
       </Card>
       <Card className={classes.card} key="compost" variant="outlined">
         <Typography variant={"subtitle1"}>Compost & Yard Waste</Typography>
-        {compost.map((x) => (
-          <WasteItem
-            data={x}
-            classes={classes}
-            remove={() => {
-              removeFromCompost(x);
-              remove(x);
-            }}
-          />
-        ))}
+        <AnimatePresence>
+          {compost.map((x) => (
+            <WasteItem
+              data={x}
+              classes={classes}
+              remove={() => {
+                removeFromCompost(x);
+                remove(x);
+              }}
+            />
+          ))}
+        </AnimatePresence>
       </Card>
       <Card className={classes.card} key="recycling" variant="outlined">
         <Typography variant={"subtitle1"}>Recycling</Typography>
-        {recycling.map((x) => (
-          <WasteItem
-            data={x}
-            classes={classes}
-            remove={() => {
-              removeFromRecycling(x);
-              remove(x);
-            }}
-          />
-        ))}
+        <AnimatePresence>
+          {recycling.map((x) => (
+            <WasteItem
+              data={x}
+              classes={classes}
+              remove={() => {
+                removeFromRecycling(x);
+                remove(x);
+              }}
+            />
+          ))}
+        </AnimatePresence>
       </Card>
       <Card className={classes.card} key="hazard" variant="outlined">
         <Typography variant={"subtitle1"}>Hazard Waste</Typography>
-        {hazard.map((x) => (
-          <WasteItem
-            data={x}
-            classes={classes}
-            remove={() => {
-              removeFromHazard(x);
-              remove(x);
-            }}
-          />
-        ))}
+        <AnimatePresence>
+          {hazard.map((x) => (
+            <WasteItem
+              data={x}
+              classes={classes}
+              remove={() => {
+                removeFromHazard(x);
+                remove(x);
+              }}
+            />
+          ))}
+        </AnimatePresence>
       </Card>
     </Paper>
   );
